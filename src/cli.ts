@@ -48,19 +48,11 @@ function displayLogo() {
     chalk.cyan(`
   ╔═══════════════════════════════════════════╗
   ║                                           ║
-  ║   ██████╗ ██╗   ██╗███╗   ██╗ █████╗     ║
-  ║   ██╔══██╗╚██╗ ██╔╝████╗  ██║██╔══██╗    ║
-  ║   ██║  ██║ ╚████╔╝ ██╔██╗ ██║███████║    ║
-  ║   ██║  ██║  ╚██╔╝  ██║╚██╗██║██╔══██║    ║
-  ║   ██████╔╝   ██║   ██║ ╚████║██║  ██║    ║
-  ║   ╚═════╝    ╚═╝   ╚═╝  ╚═══╝╚═╝  ╚═╝    ║
   ║                                           ║
-  ║   ██████╗ ██████╗     ████████╗ ██████╗  ║
-  ║   ██╔══██╗██╔══██╗    ╚══██╔══╝██╔═══██╗ ║
-  ║   ██║  ██║██████╔╝       ██║   ██║   ██║ ║
-  ║   ██║  ██║██╔══██╗       ██║   ██║   ██║ ║
-  ║   ██████╔╝██████╔╝       ██║   ╚██████╔╝ ║
-  ║   ╚═════╝ ╚═════╝        ╚═╝    ╚═════╝  ║
+  ║                                           ║
+  ║              DYNOPORT                     ║
+  ║                                           ║
+  ║                                           ║
   ║                                           ║
   ║   CLI Tool v${version.padEnd(27)}║
   ╚═══════════════════════════════════════════╝
@@ -95,7 +87,7 @@ async function exportTableToJson(
       `Table info: ~${itemCount.toLocaleString()} items, ${tableSizeMB} MB`
     );
   } catch (error) {
-    mainSpinner.info(`Could not retrieve table size information`);
+    mainSpinner.info('Could not retrieve table size information');
   }
 
   mainSpinner.text = `Exporting table '${tableName}' to '${outputFilePath}'...`;
@@ -106,7 +98,7 @@ async function exportTableToJson(
 
   let totalCount = 0;
   const outputStream = fs.createWriteStream(outputFilePath, { flags: 'a' });
-  let progressSpinner = createSpinner(`Scanning items...`).start();
+  let progressSpinner = createSpinner('Scanning items...').start();
 
   try {
     let batchNumber = 1;
@@ -147,7 +139,7 @@ async function exportTableToJson(
     const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
     const elapsedTimeFormatted = formatElapsedTime(Date.now() - startTime);
 
-    mainSpinner.succeed(chalk.green(`✨ Export completed successfully!`));
+    mainSpinner.succeed(chalk.green('✨ Export completed successfully!'));
 
     // Summary box
     console.log(chalk.cyan('\n┌─────────────────────────────────────────┐'));
@@ -199,7 +191,7 @@ async function importJsonToTable(
     const fileSizeMB = (stats.size / (1024 * 1024)).toFixed(2);
     mainSpinner.info(`File info: ${fileSizeMB} MB`);
   } catch (error) {
-    mainSpinner.info(`Could not retrieve file size information`);
+    mainSpinner.info('Could not retrieve file size information');
   }
 
   mainSpinner.text = `Importing JSON from '${filePath}' to table '${tableName}'...`;
@@ -303,7 +295,7 @@ async function importJsonToTable(
       const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
       const elapsedTimeFormatted = formatElapsedTime(Date.now() - startTime);
 
-      mainSpinner.succeed(chalk.green(`✨ Import completed!`));
+      mainSpinner.succeed(chalk.green('✨ Import completed!'));
 
       // Summary box
       console.log(chalk.cyan('\n┌─────────────────────────────────────────┐'));
@@ -383,8 +375,11 @@ async function runWizard() {
     },
   ]);
 
+  const ec2 = new AWS.EC2({ region: 'us-east-1' }); // Use any region to initialize
+  const response = await ec2.describeRegions({}).promise();
   // Step 2: Choose region
-  const regions = await listAwsRegions();
+  const regions =
+    response.Regions?.map(region => region.RegionName || '') || [];
   const { selectedRegion } = await inquirer.prompt([
     {
       type: 'list',
