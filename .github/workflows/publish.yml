@@ -10,11 +10,17 @@ on:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write      # This allows the action to push to the repository
+      issues: write        # For creating issues
+      pull-requests: write # For creating PRs if needed
+      packages: write      # For publishing packages
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          token: ${{ secrets.GIT_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -30,7 +36,7 @@ jobs:
 
       - name: Semantic Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release 
