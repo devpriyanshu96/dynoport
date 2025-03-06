@@ -1,9 +1,9 @@
 \
-Dynoport
+ <img src="https://i.imgur.com/qYeuhfG.png" width="30" height="30" title="Dynoport"> Dynoport
 ==========
 
 [![npm version](https://badge.fury.io/js/dynoport.svg)](https://badge.fury.io/js/dynoport) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/axios?style=flat-square)](https://bundlephobia.com/package/dynoport@latest)
-[![npm downloads](https://img.shields.io/npm/dm/axios.svg?style=flat-square)](https://npm-stat.com/charts.html?package=dynoport)
+[![npm downloads](https://img.shields.io/npm/dm/dynoport.svg?style=flat-square)](https://npm-stat.com/charts.html?package=dynoport)
 
 
 Dynoport is a CLI tool that allows you to easily import and export data from a specified DynamoDB table. It provides a convenient way to transfer data between DynamoDB and JSON files.
@@ -63,6 +63,10 @@ This command will import the data from the "./data.json" file and insert it into
 - During import, the JSON file should contain an array of objects, where each object represents a record to be inserted into the DynamoDB table.
 
 - For large datasets, the import operation is batched to ensure efficient processing. The batch size can be adjusted using the `chunkSize` variable in the code.
+
+## Attributions
+
+
 
 ## Version
 

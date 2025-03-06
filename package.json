@@ -1,6 +1,6 @@
 {
   "name": "dynoport",
-  "version": "0.0.3-development",
+  "version": "0.0.4-development",
   "description": "Dynoport is a CLI tool that allows you to easily import and export data from a specified DynamoDB table. It provides a convenient way to transfer data between DynamoDB and JSON files",
   "files": [
     "!lib/__tests__/**/*",
@@ -24,13 +24,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/priyanshu966106/dynoport.git"
+    "url": "git+https://github.com/devpriyanshu96/dynoport.git"
   },
   "license": "MIT",
   "author": {
     "name": "Priyanshu Kumar",
     "email": "priyanshu966106@gmail.com",
-    "url": "https://github.com/priyanshu966106"
+    "url": "https://github.com/devpriyanshu96"
   },
   "engines": {
     "node": ">=12.0"
