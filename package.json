@@ -24,13 +24,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/priyanshu966106/dynoport.git"
+    "url": "git+https://github.com/devpriyanshu96/dynoport.git"
   },
   "license": "MIT",
   "author": {
     "name": "Priyanshu Kumar",
     "email": "priyanshu966106@gmail.com",
-    "url": "https://github.com/priyanshu966106"
+    "url": "https://github.com/devpriyanshu96"
   },
   "engines": {
     "node": ">=12.0"
