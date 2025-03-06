@@ -1,24 +1,32 @@
-\
- <img src="https://i.imgur.com/qYeuhfG.png" width="30" height="30" title="Dynoport"> Dynoport
-==========
+# <img src="https://i.imgur.com/qYeuhfG.png" width="30" height="30" title="Dynoport"> Dynoport 🚀
 
 [![npm version](https://badge.fury.io/js/dynoport.svg)](https://badge.fury.io/js/dynoport) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/axios?style=flat-square)](https://bundlephobia.com/package/dynoport@latest)
 [![npm downloads](https://img.shields.io/npm/dm/dynoport.svg?style=flat-square)](https://npm-stat.com/charts.html?package=dynoport)
 
-
 Dynoport is a CLI tool that allows you to easily import and export data from a specified DynamoDB table. It provides a convenient way to transfer data between DynamoDB and JSON files.
 
-## Installation
+## ✨ Features
+
+- 📤 **Export** DynamoDB tables to JSON files with real-time progress tracking
+- 📥 **Import** JSON data back into DynamoDB tables with optimized batch processing
+- 🧙‍♂️ **Wizard Mode** for guided, interactive operation
+- 📊 Detailed metrics and comprehensive error reporting
+- ⚡ Parallel batch processing for maximum performance
+- 🌐 Support for all AWS regions
+
+## 🛠️ Installation
 
 To install Dynoport, use the following command:
 
-Copy code
-
-`npm install -g dynoport`
+```npm install -g dynoport```
 
 ## Usage
 
-Dynoport supports two modes: export and import. Here's how you can use each mode:
+Dynoport supports three modes: wizard, export and import. Here's how you can use each mode:
+
+### 🧙‍
+
+In wizard mode, Dynoport guides you through the process of importing or exporting data.
 
 ### Export Mode
 
